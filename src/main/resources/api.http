@@ -2,10 +2,10 @@
 POST http://localhost:8080/v1/api/order/create
 
 ###Order Update
-PUT http://localhost:8080/v1/api/order/update/f646c579-6edf-4c09-9f74-7f97949abaf2/20
+PUT http://localhost:8080/v1/api/order/update/7904831b-3b39-4bb4-977a-f19a2e8afe6c/20
 
 ###For Error
-PUT http://localhost:8080/v1/api/order/update/f646c579-6edf-4c09-9f74-7f97949abaf2/100
+PUT http://localhost:8080/v1/api/order/update/7904831b-3b39-4bb4-977a-f19a2e8afe6c/100
 
 ###Get List Of Orders
 GET http://localhost:8080/v1/api/order
