@@ -1,26 +1,29 @@
-package com.axon.cqrs.coreapi.events;
+package com.axon.cqrs.model;
 
-import com.axon.cqrs.coreapi.commands.CreateOrderCommand;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
-public class OrderCreatedEvent {
+public class OrderEntity {
 
-    private final String orderId;
-    private final Boolean orderConfirmed;
+    @Id
+    public String orderId;
 
-    public OrderCreatedEvent(String orderId,Boolean orderConfirmed) {
-
-        this.orderId = orderId;
-        this.orderConfirmed = orderConfirmed;
-    }
+    public Boolean orderConfirmed;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OrderCreatedEvent that = (OrderCreatedEvent) o;
+        OrderEntity that = (OrderEntity) o;
         return Objects.equals(orderId, that.orderId);
     }
 
@@ -31,7 +34,7 @@ public class OrderCreatedEvent {
 
     @Override
     public String toString() {
-        return "OrderCreatedEvent{" +
+        return "OrderEntity{" +
                 "orderId='" + orderId + '\'' +
                 '}';
     }

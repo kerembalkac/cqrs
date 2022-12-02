@@ -23,7 +23,7 @@ public class OrderAggregate {
     @CommandHandler
     public OrderAggregate(CreateOrderCommand command){
         //businessLogic buraya yazilir
-        AggregateLifecycle.apply(new OrderCreatedEvent(command.getOrderId()));
+        AggregateLifecycle.apply(new OrderCreatedEvent(command.getOrderId(),false));
     }
 
     @CommandHandler
@@ -38,7 +38,7 @@ public class OrderAggregate {
     @EventSourcingHandler
     public void on(OrderCreatedEvent event){
         this.orderId = event.getOrderId();
-        this.orderConfirmed = false;
+        this.orderConfirmed = event.getOrderConfirmed();
         this.stock = 100;
     }
 
